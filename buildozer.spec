@@ -1,13 +1,13 @@
 [app]
 
 # (str) Title of your application
-title = Alfly Ftp
+title = Permission Test
 
 # (str) Package name
-package.name = alflyftp
+package.name = permissiontest
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.alflyftp
+package.domain = org.permissiontest
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -93,7 +93,7 @@ fullscreen = 0
 #icon.adaptive_background.filename = %(source.dir)s/data/icon_bg.png
 
 # (list) Permissions
-#android.permissions = INTERNET
+#android.permissions = INTERNET, CAMERA, WRITE_EXTERNAL_STORAGE
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
