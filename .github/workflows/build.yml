@@ -1,7 +1,5 @@
 name: Kivy-Ftp
-on:
-  push:
-    branches: [ main ]
+on: workflow_dispatch
 
 jobs:
   build:
@@ -15,11 +13,17 @@ jobs:
         id: buildozer
         with:
           workdir: .
-          command: buildozer android debug
-          buildozer_version: master
+          command: buildozer android release
+          buildozer_version: stable
           
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
           name: package
           path: ${{ steps.buildozer.outputs.filename }}
+
+      - name: Cache Buildozer global directory
+        uses: actions/cache@v2
+        with:
+          path: .buildozer_global
+          key: buildozer-global-${{ hashFiles('buildozer.spec') }} # Replace with your path
